@@ -24,7 +24,7 @@
 <script type="text/javascript">
 		$(document).ready(function(){
 			var code = "";
-			/* 인증번호 이메일 전송 */
+			/* 
 			$("#EMAIL-CHK").click(function(){
 			    console.log("EMAIL-CHK");
 				var MEM_EMAIL = $("#MEM_EMAIL").val();            // 입력한 이메일
@@ -56,7 +56,7 @@
 					$(".successEmailChk").css("color","green");
 					$("#EMAIL-CHECK").attr("disabled",true);
 				}
-			})
+			}) */
 
 			$("#submit").on("click", function(){
 				if($.trim($("#MEM_ID").val())==""){
@@ -179,19 +179,19 @@
                   <div class="form-group">
                     <input class="form-control input-lg well" id="MEM_TEL" type="text" name="MEM_TEL"  placeholder="PHONE"/>
                   </div>
-                  <div class="form-group">
+                  <div>
                     <input class="form-control input-lg well" id="MEM_EMAIL" type="email" name="MEM_EMAIL"  placeholder="EMAIL" style="width: 360px; float: left"/>
-                 <button class="form-control" type="button" id="EMAIL-CHK" style="width: 95px; height:43;" >인증받기</button>
+                 <!-- <button class="form-control" type="button" id="EMAIL-CHK" style="width: 95px; height:43;" >인증받기</button> -->
                   </div>
                   <br />
-                  <div class="form-group">
+<!--                   <div class="form-group">
                   <input class="form-control input-lg well" id="EMAIL-CHECK" type="text" name="EMAIL_CHECK"  placeholder="EMAIL_CHECK" style="width: 360px; float: left"/>
                  <button class="form-control" type="button" id="EMAIL-CHK2" style="width: 95px; height:43;" >인증하기</button>
                   <span class="point successEmailChk" style="float: left; margin-top: -20px; color: black;">※이메일 입력후 인증번호 보내기를 해주십시오.</span>
                   </div>
 				 <div>
 				 <input type="hidden" id="emailDoubleChk"/>
-                 </div>
+                 </div> -->
                   <div class="form-group">
                     <button class="btn btn-block btn-round btn-b" type="submit" id="submit">Register</button>
                   </div>

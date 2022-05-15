@@ -36,7 +36,6 @@
 					location.href='delete?b_no='+b_no;
 			}
 		}
-
 </script>
 <style type="text/css">
 li {
@@ -50,7 +49,7 @@ li {
 <!-- header 입니다 -->
 <div class="main">
 	<section class="module bg-dark-30 about-page-header"
-		data-background="/resourced/assets/images/about_bg.jpg">
+		data-background="/resources/assets/images/about_bg.jpg">
 		<div id="root" class="container">
 			<div class="row">
 				<div class="col-sm-6 col-sm-offset-3">
@@ -58,8 +57,7 @@ li {
 					<c:if test="${scri.cate==null}">total</c:if>
 					<c:if test="${scri.cate==1}">NOTICE</c:if>
 					<c:if test="${scri.cate==2}">Q&A</c:if>
-					<c:if test="${scri.cate==3}">F&Q</c:if>
-					<c:if test="${scri.cate==4}">ENVENT</c:if>
+					<c:if test="${scri.cate==3}">ENVENT</c:if>
 					</h1>
 				</div>
 			</div>
@@ -74,13 +72,13 @@ li {
 
 <form name="readForm" role="form" method="get" style="margin-bottom: 100px;" action="/board/boardinsert">
 
-			<table class="table" style=" width: 70%; height: 100px; margin: 0 auto; text-align: center;">
-				<tr style="text-align:center; height:50px;" class="bg-dark">
+			<table class="table" style=" width: 65%; height: 50px; margin: 0 auto; text-align: center;">
+				<tr style="text-align:center;" class="bg-dark">
 					<th style=text-align:center>번호</th>
 					<th style=text-align:center>제목</th>
 					<th style=text-align:center>작성자</th>
 					<th style=text-align:center>등록일</th>
-					<th style="width:10%; text-align:center;">조회수</th>
+					<th style="width:70px; text-align:center;">조회수</th>
 					<th style=text-align:center>삭제</th>
 				</tr>
 				<c:forEach items="${boardnotice}" var="boardnotice">
@@ -91,18 +89,13 @@ li {
 							href="/board/boardview?b_no=${boardnotice.b_no}">
                   		<strong><c:out value="${boardnotice.b_title}" /></strong></a></td>
 						<td width="100" align="center">
-						<strong><c:if test="${boardnotice.b_writer == '1234'}">
-								Admin
-								</c:if>
-								<c:if test="${boardnotice.b_writer != '1234'}">
-								${boardnotice.b_writer}
-								</c:if>
-						</strong>
+						<strong><c:out value="${boardnotice.b_writer}" /></strong>
 						</td>
 						<td width="100" align="center">
 						<strong><fmt:formatDate value="${boardnotice.b_date}" pattern="yyyy-MM-dd" /></strong></td>
 						<td><strong><c:out value="${boardnotice.b_hit}" /></strong></td>
 						<td width="50" align="center">
+						<input class="btn btn-default btn-round" style="color:#337ab7;" type="button" value="삭제" onclick="del(${boardnotice.b_no})"></td>
 						<!-- <td width="50" align ="center"><button type="submit" class="delete_btn">삭제</button></td> -->
 					</tr>
 
@@ -120,19 +113,13 @@ li {
                   									  cate=${scri.cate}">
                   		<c:out value="${boardlist.b_title}" /></a></td>
 						<td width="100" align="center">
-						<c:if test="${boardlist.b_writer == '1234'}">
-								Admin
-						</c:if>
-						<c:if test="${boardlist.b_writer != '1234'}">
-								${boardlist.b_writer}
-						</c:if>
+						<c:out value="${boardlist.b_writer}" />
 						</td>
 						<td width="100" align="center">
 						<fmt:formatDate value="${boardlist.b_date}" pattern="yyyy-MM-dd" /></td>
-						<td>
-						<c:out value="${boardlist.b_hit}"></c:out> </td>
+						<td><c:out value="${boardlist.b_hit}" /></td>
 						<td width="50" align="center">
-						<c:if test="${member.MEM_ID == boardlist.b_writer}" >
+						<c:if test="${member.MEM_ID eq boardlist.b_writer}">
 						<input class="btn btn-default btn-round" style="color:#337ab7;" type="button" value="삭제" onclick="del(${boardlist.b_no})">
 						</c:if>
 						</td>
