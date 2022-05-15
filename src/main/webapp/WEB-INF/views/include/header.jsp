@@ -193,7 +193,7 @@
 		<c:if test="${member != null}">
           	
           	<c:if test="${member.MEM_ID eq '1234'}">
-          	 <li style="font-size:13px;"><a href="/master/orderManage?delivstate=1" >관리자페이지</a></li>
+          	 <li style="font-size:13px;"><a href="/master/boardManage" >관리자페이지</a></li>
           	
           	</c:if>
           	<li style="font-size:13px;"><a href="/member/logout" >LOGOUT</a></li>
